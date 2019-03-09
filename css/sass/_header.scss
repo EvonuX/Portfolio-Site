@@ -1,0 +1,105 @@
+header {
+  width: 100%;
+  height: 100vh;
+}
+
+.top-nav {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: -100vh;
+  z-index: 50;
+  background-color: #16162d;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  transition: all 650ms cubic-bezier(1, 0, 0, 1);
+  .nav-list {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav-link {
+      font-family: "Permanent Marker", sans-serif;
+      font-size: 5rem;
+      padding: 1rem;
+      &:hover,
+      &:focus {
+        background: linear-gradient(to top, #ffe838, #fd57bf);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+  &.open {
+    top: 0;
+    border-radius: initial;
+  }
+}
+
+.menu-toggler {
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+  width: 5rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1500;
+  transform: transform 650ms ease-out;
+  &.open {
+    transform: rotate(-45deg);
+    & .bar.start {
+      transform: rotate(-450deg) translateX(0.8rem);
+    }
+    & .bar.end {
+      transform: rotate(-450deg) translateX(-0.8rem);
+    }
+  }
+  .bar {
+    background: linear-gradient(to right, #ffe838, #fd57bf);
+    width: 100%;
+    height: 4px;
+    border-radius: 0.8rem;
+    &.half {
+      width: 50%;
+    }
+    &.start {
+      transform-origin: right;
+      transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    }
+    &.end {
+      align-self: flex-end;
+      transform-origin: left;
+      transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    }
+  }
+}
+
+.landing-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  h1 {
+    font-size: 20rem;
+    font-family: "Permanent Marker", sans-serif;
+    background: linear-gradient(to top, #ffe838, #fd57bf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 1rem;
+    user-select: none;
+  }
+  h6 {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+}
